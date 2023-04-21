@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body {
+  background: #f6f5f7;
+  font-family: 'Montserrat', sans-serif;
+  color: #3E363F;
+}
+
+#contenedor{
+  width: 80vw;
+  height: 70vh;
+  text-align: center;
+  /* Estas 3 lineas se encargan de centrar el div vertical y horizontalmente */
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#calculadora{
+  background: white;
+  /* Con estas 3 lineas vamos a hacer que los divs queden lado a lado */
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+#detalle{
+  background: linear-gradient(220.55deg, #FF896D 0%, #D02020 100%);
+  /* Con estas 3 lineas vamos a hacer que los divs queden lado a lado */
+  width: 50%;
+  height: 100%;
+  float: left;
+  color: #f6f5f7
+}
+
+.contenido{
+  /* Estas tres lineas van a centrar el contenido verticalmente dentro de cada div */
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow: hidden;
+  padding: 40px;
+}
+input {
+  width: 70%;
+  padding: 12px 15px;
+  border: none;
+  background-color: #eeeeee3b;
+}
+
+button {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 12px 45px;
+  border-radius: 30px;
+  background: linear-gradient(220.55deg, #FF896D 0%, #D02020 100%);
+  border: 1px solid #FF416C;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 20ms ease-in;
+}
+
+button:hover{
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+      0 10px 10px rgba(0, 0, 0, 0.22);
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: none;
+}
+
+#error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+.resultado {
+  color: #0A81D1;
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 5px;
+  display: none;
+}
+
+
+/*Animacion*/
+section {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(-45deg, #CD75E6 0%, #E6CB8C 13%, #853F99 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
+  ;
+  background-size: 400% 400%;
+  position: relative;
+  animation: animate 7.5s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
