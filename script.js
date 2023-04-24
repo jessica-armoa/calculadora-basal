@@ -4,8 +4,20 @@ const FLU = document.getElementById('flu');
 const MAN = document.getElementById('man');
 const FLUMAN1 = document.getElementById('fluMan1');
 const FLUMAN2 = document.getElementById('fluMan2');
+const INPUT = document.getElementById('peso');
+
+//Para ue funcione el enter
+INPUT.addEventListener("keyup", function (e) {
+  if (e.code === 'Enter') {
+    CALCULAR.click();
+  }
+});
 CALCULAR.addEventListener('click', () => {
-  const DATO = document.getElementById('peso').value
+  const DATO = INPUT.value
+  FLU.style.display = 'none';
+  MAN.style.display = 'none';
+  FLUMAN1.style.display = 'none';
+  FLUMAN2.style.display = 'none';
   //validamos que se cargue un dato:
   if (DATO > 0) {
     ERROR.style.display = 'none';
@@ -19,8 +31,8 @@ CALCULAR.addEventListener('click', () => {
     }else{
       let flujos = calcFlujo2(DATO).map(f => f.toFixed(2));
       let mantenimientos = flujos.map(f => {return (f * 1.5).toFixed(2)});
-      FLUMAN1.innerHTML = `Opcion 1: ${flujos[0]}cc/h   m+m/2 : ${mantenimientos[0]}cc/h`;
-      FLUMAN2.innerHTML = `Opcion 2: ${flujos[1]}cc/h   m+m/2 : ${mantenimientos[1]}cc/h`
+      FLUMAN1.innerHTML = `Opcion 1: ${flujos[0]}cc/h<br>m+m/2 : ${mantenimientos[0]}cc/h`;
+      FLUMAN2.innerHTML = `Opcion 2: ${flujos[1]}cc/h<br>m+m/2 : ${mantenimientos[1]}cc/h`
       FLUMAN1.style.display = 'block';
       FLUMAN2.style.display = 'block';
     }
@@ -28,6 +40,8 @@ CALCULAR.addEventListener('click', () => {
     ERROR.style.display = 'block';
     FLU.style.display = 'none';
     MAN.style.display = 'none';
+    FLUMAN1.style.display = 'none';
+    FLUMAN2.style.display = 'none';
   }
 })
 
@@ -42,3 +56,4 @@ function calcFlujo2(peso) {//Método de superficie corporal
   let supCorporal = ((peso*4)+7)/(peso*90);
   return [supCorporal*1500/24, supCorporal*2000/24];
 }
+
